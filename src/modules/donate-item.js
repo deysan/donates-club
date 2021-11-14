@@ -1,3 +1,5 @@
+import { Settings as Set } from "../core/constants/settings";
+
 export class DonateItem {
     #donate
 
@@ -11,7 +13,7 @@ export class DonateItem {
         donateItem.textContent = `${this.#donate.date} - `;
 
         const donateAmount = document.createElement('b');
-        donateAmount.textContent = `${this.#donate.amount}$`;
+        donateAmount.textContent = `${this.#donate.amount}${Set.currency}`;
         donateItem.append(donateAmount);
 
         return donateItem;
