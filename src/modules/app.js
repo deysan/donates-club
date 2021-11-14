@@ -1,5 +1,14 @@
-export default class App {
+import { DonateForm } from '../modules/donate-form';
+
+export class App {
+    #donat
+
+    constructor() {
+        this.#donat = new DonateForm();
+    }
     run() {
-        document.body.textContent = 'Hello World';
+        const donatBlock = this.#donat.render();
+
+        document.body.append(donatBlock);
     }
 }
