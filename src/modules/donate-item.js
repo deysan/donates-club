@@ -1,4 +1,5 @@
-import { Settings as Set } from "../core/constants/settings";
+import * as Function from '../core/utils/index';
+import { Settings as Set } from '../core/constants/settings';
 
 export class DonateItem {
     #donate
@@ -10,7 +11,7 @@ export class DonateItem {
     render() {
         const donateItem = document.createElement('div');
         donateItem.className = 'donate-item';
-        donateItem.textContent = `${this.#donate.date} - `;
+        donateItem.textContent = `${Function.getFormattedTime(this.#donate.date)} – `;
 
         const donateAmount = document.createElement('b');
         donateAmount.textContent = `${this.#donate.amount}${Set.currency}`;
