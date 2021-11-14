@@ -11,6 +11,24 @@ export class DonateList {
         this.#donates = donates;
     }
 
+    updateDonates(updatedDonates) {
+        const donatesList = document.querySelector('.donates-container__donates');
+
+        // Удаление всех донатов
+        while (donatesList.firstChild) {
+            donatesList.removeChild(donatesList.firstChild);
+        }
+
+        // Отрисовка всех донатов
+        updatedDonates.forEach((donate) => {
+            this.#donateItem = new DonateItem(donate);
+            const donateItems = this.#donateItem.render();
+            donatesList.append(donateItems);
+        })
+
+        return donatesList;
+    }
+
     render() {
         const donatesContainerTitle = document.createElement('h2');
         donatesContainerTitle.className = 'donates-container__title';

@@ -6,8 +6,19 @@ export class App {
     #donateList
 
     constructor() {
-        this.#donate = new DonateForm();
-        this.#donateList = new DonateList(mockDonates);
+        this.state = {
+            donates: [],
+            totalAmount: 0
+        };
+        this.#donate = new DonateForm(this.state.totalAmount, this.createNewDonate.bind(this));
+        this.#donateList = new DonateList(this.state.donates);
+    }
+
+    createNewDonate(newDonate) {
+        this.state.donates.push(newDonate);
+        this.state.totalAmount += Number(newDonate.amount);
+        this.#donateList.updateDonates(this.state.donates);
+        this.#donate.updateTotalAmount(this.state.totalAmount);
     }
 
     run() {
