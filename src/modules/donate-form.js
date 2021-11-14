@@ -1,4 +1,4 @@
-import { Settings as Set } from "../core/constants/settings";
+import { Settings as Set } from '../core/constants/settings';
 
 export class DonateForm {
     #donateForm
