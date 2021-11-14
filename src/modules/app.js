@@ -1,3 +1,4 @@
+import * as Function from '../core/utils/index';
 import { DonateForm } from '../modules/donate-form';
 import { DonateList } from '../modules/donate-list';
 
@@ -35,3 +36,11 @@ const mockDonates = [
     { amount: 3, date: new Date() },
     { amount: 1, date: new Date() },
 ];
+
+const mockDonatesAmount = [];
+
+mockDonates.forEach((donate) => {
+    return mockDonatesAmount.push(donate.amount);
+})
+
+const totalAmount = Function.calculateSumOfNumbers(mockDonatesAmount);
